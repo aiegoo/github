@@ -1,0 +1,330 @@
+*, *:before, *:after {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:root {
+	font-size: 20px;
+}
+body {
+	background: hsl(60,100%,90%);
+	color: hsl(0,0%,9%);
+	line-height: 1.5;
+}
+nav {
+	$bun: hsl(40,100%,45%);
+	$bunInner: hsl(40,100%,75%);
+	$ketchup: hsl(0,100%,40%);
+	$ketchupT: hsla(0,100%,40%,0);
+	$ketchupLt: hsl(0,100%,80%);
+	$ketchupLtT: hsla(0,100%,80%,0);
+	$ketchupSh: hsl(0,100%,25%);
+	$burger: hsl(0,40%,30%);
+	$cheese: hsl(50,100%,50%);
+	$cheeseLt: hsl(50,100%,75%);
+	$cheeseLtT: hsla(50,100%,75%,0);
+	$lettuce: hsl(120,50%,50%);
+	$lettuceVein: hsl(120,50%,60%);
+	$lettuceVeinT: hsla(120,50%,60%,0);
+	$tomato: hsl(10,80%,55%);
+	$tomatoT: hsla(10,80%,55%,0);
+	$tomatoVein: hsl(10,80%,65%);
+	$tomatoVeinT: hsla(10,80%,65%,0);
+	$seed: hsl(45,100%,75%);
+	$seedT: hsla(45,100%,75%,0);
+
+	$transDur: 0.7s;
+	$trans: $transDur ease-out;
+		
+	font: 1em "ZCOOL QingKe HuangYou", sans-serif;
+	margin: 1.5em auto;
+	width: 5em;
+	height: 4.5em;
+	text-transform: uppercase;
+	input {
+		border-radius: 50%;
+		cursor: pointer;
+		display: block;
+		position: absolute;
+		-webkit-appearance: none;
+		appearance: none;
+		width: 100%;
+		height: 100%;
+		z-index: 9;
+		&:focus {
+			outline: transparent;
+		}
+	}
+	&, ul {
+		position: relative;
+	}
+	li, span, a, label {
+		display: block;
+	}
+	li {
+		left: 50%;
+		text-align: center;
+		transform: translateX(-50%);
+		width: 5em;
+		&, span {
+			position: absolute;
+			transition: all $trans;
+			transform-origin: 50% 0;
+		}
+		&:first-child, &:last-child {
+			width: 4.4em;
+			span {
+				line-height: 4.5;
+			}
+		}
+		&:first-child {
+			background: $bunInner;
+			border-radius: 0 0 0.45em 0.45em / 0 0 100% 100%;
+			box-shadow:
+				0.2em 0 0 $bun inset,
+				-0.2em 0 0 $bun inset,
+				0 0 0 $bun inset,
+				0 -1.4em 0 $bun inset;
+			top: 3.6em;
+			height: 0.9em;
+			z-index: 0;
+			label {
+				&:before, &:after {
+					background: $ketchup;
+					border-radius: 0.2em;
+					box-shadow: 0 -0.1em 0 $ketchupSh inset;
+					content: "";
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 3em;
+					height: 0.4em;
+				}
+				&:before {
+					background-image:
+						radial-gradient(0.2em 0.3em at 0.2em 0.2em,$ketchupLt 49%,$ketchupLtT 50%);
+					transform: translate(-50%,-50%) rotate(45deg);
+				}
+				&:after {
+					background-image:
+						radial-gradient(0.2em 0.3em at 2.8em 0.2em,$ketchupLt 49%,$ketchupLtT 50%);
+					transform: translate(-50%,-50%) rotate(-45deg);
+				}
+			}
+		}
+		&:nth-child(2) {
+			background: $burger;
+			background-image:
+				repeating-linear-gradient(
+					hsla(0,0%,0%,0.3),
+					hsla(0,0%,0%,0.3) 4%,
+					hsla(0,0,0%,0) 5%,
+					hsla(0,0,0%,0) 20%
+				);
+			background-position: 0 -0.35em;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			border-radius: 0.35em;
+			box-shadow:
+				0.3em 0 0 $burger inset,
+				-0.3em 0 0 $burger inset,
+				0 0 0 $burger inset,
+				0 -0.6em 0 $burger inset;
+			top: 2.9em;
+			width: 4.8em;
+			height: 0.7em;
+			z-index: 1;
+			span {
+				line-height: 5;
+			}
+			a {
+				color: hsl(0,0%,100%);
+			}
+		}
+		&:nth-child(3) {
+			background: $cheese;
+			background-image: radial-gradient(10% 10% at 15% 15%,$cheeseLt 49%,$cheeseLtT 50%);
+			border-radius: 0.1em;
+			top: 2.7em;
+			width: 4em;
+			height: 0.2em;
+			z-index: 2;
+			span {
+				line-height: 4;
+			}
+			&:before {
+				background: inherit;
+				border-radius: 0 0 100% 50% / 0 0 100% 0;
+				content: "";
+				display: block;
+				position: absolute;
+				top: 100%;
+				right: 0;
+				width: 0.8em;
+				height: 0.8em;
+				transform: rotate(-45deg);
+				transform-origin: 0 0;
+				transition: transform $trans;
+			}
+		}
+		&:nth-child(4) {
+			background: $lettuce;
+			background-image:
+				linear-gradient(45deg,$lettuceVeinT 24%,$lettuceVein 25%,$lettuceVein 27%,$lettuceVeinT 28%),
+				linear-gradient(45deg,$lettuceVeinT 46%,$lettuceVein 47%,$lettuceVein 49%,$lettuceVeinT 50%),
+				linear-gradient(45deg,$lettuceVeinT 74%,$lettuceVein 75%,$lettuceVein 77%,$lettuceVeinT 78%),
+				linear-gradient(-45deg,$lettuceVeinT 46%,$lettuceVein 47%,$lettuceVein 52%,$lettuceVeinT 53%);
+			background-position: 0 0;
+			border-radius: 0.15em;
+			box-shadow:
+				0 0.4em 0 $lettuce inset,
+				-0.4em 0 0 $lettuce inset;
+			top: 2.4em;
+			width: 4.5em;
+			height: 0.3em;
+			z-index: 3;
+			span {
+				line-height: 4.5;
+			}
+		}
+		&:nth-child(5) {
+			background: $tomatoVein;
+			background-image:
+				radial-gradient(20% 25% at 50% 30%,$tomato 49%,$tomatoT 50%),
+				radial-gradient(20% 25% at 50% 70%,$tomato 49%,$tomatoT 50%),
+				radial-gradient(25% 20% at 30% 50%,$tomato 49%,$tomatoT 50%),
+				radial-gradient(25% 20% at 70% 50%,$tomato 49%,$tomatoT 50%);
+			background-position: 0 -0.4em;
+			border-radius: 0.2em;
+			box-shadow:
+				0.4em 0 0 $tomato inset,
+				-0.4em 0 0 $tomato inset,
+				0 0 0 $tomato inset,
+				0 -0.8em 0 $tomato inset;
+			top: 2em;
+			width: 5em;
+			height: 0.4em;
+			z-index: 4;
+			span {
+				line-height: 5;
+			}
+		}
+		&:last-child {
+			background: $bun;
+			background-image:
+				radial-gradient(0.5em 0.3em at 0.5em 0.2em,$seed 0.15em,$seedT 0.2em),
+				radial-gradient(0.5em 0.3em at 0 0.7em,$seed 0.15em,$seedT 0.2em),
+				radial-gradient(0.5em 0.3em at 1em 0.7em,$seed 0.15em,$seedT 0.2em);
+			background-position: 0 0;
+			background-size: 1em 1em;
+			border-radius: 2em 2em 0 0 / 100% 100% 0 0;
+			box-shadow: 0.4em 0 0 0 $bun inset, -0.4em 0 0 0 $bun inset;
+			height: 2em;
+			z-index: 5;
+		}
+		span, label, a {
+			border-radius: inherit;
+			height: 100%;
+		}
+		span {
+			margin: auto;
+			top: 0;
+			width: 100%;
+			transform: scaleY(0);
+			transform-origin: 50% 0;
+		}
+		a {
+			color: currentColor;
+			text-decoration: none;
+			&:before {
+				background: $ketchup;
+				background-image:
+						radial-gradient(0.4em 0.2em at 3.3em 0.1em,$ketchupLt 49%,$ketchupLtT 50%);
+				border-radius: 0.2em;
+				box-shadow: 0 -0.1em 0 $ketchupSh inset;
+				content: "";
+				display: block;
+				position: absolute;
+				top: 62%;
+				left: 50%;
+				width: 3.5em;
+				height: 0.4em;
+				transform: translateX(-50%) scaleX(0);
+				transform-origin: 0 50%;
+				transition: transform 0.2s linear;
+			}
+			&:hover:before {
+				transform: translateX(-50%) scaleX(1);
+			}
+		}
+		.sr {
+			overflow: hidden;
+			width: 0;
+			height: 0;
+		}
+	}
+	input:checked + ul li {
+		$items: 6;
+		$hoverTransX: -60%;
+		@for $i from 1 through $items {
+			&:nth-child(#{$i}) {
+				@if $i == 1 or $i == 6 {
+					border-radius: 50%;
+					box-shadow:
+						0.1em 0 0 $bun inset,
+						-0.1em 0 0 $bun inset,
+						0 0.1em 0 $bun inset,
+						0 -0.1em 0 $bun inset;
+					height: 4.4em;
+					@if $i == 1 {
+						transform: translate(-50%,-3.5em);
+					}
+					@else {
+						background-position: 0 2.2em;
+						transform: translate(-50%,22.8em);
+					}
+				}
+				@elseif $i == 2 {
+					background-position: 0 0;
+					border-radius: 50%;
+					box-shadow:
+						0.3em 0 0 $burger inset,
+						-0.3em 0 0 $burger inset,
+						0 0.3em 0 $burger inset,
+						0 -0.3em 0 $burger inset;
+					height: 4.8em;
+					transform: translate(-50%,1.6em);
+				}
+				@elseif $i == 3 {
+					border-radius: 0.2em;
+					height: 4em;
+					transform: translate(-50%,6.6em);
+					&:before {
+						transform: rotate(-90deg);
+					}
+				}
+				@elseif $i == 4 {
+					border-radius: 1.5em 1em 1.2em 0.8em;
+					height: 4.5em;
+					transform: translate(-50%,10.9em);
+				}
+				@else {
+					border-radius: 50%;
+					background-position: 0 0;
+					box-shadow:
+						0.4em 0 0 $tomato inset,
+						-0.4em 0 0 $tomato inset,
+						0 0.4em 0 $tomato inset,
+						0 -0.4em 0 $tomato inset;
+					height: 5em;
+					transform: translate(-50%,15.8em);
+				}
+			}
+		}
+		span {
+			transform: scaleY(1);
+		}
+	}
+}
